@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sport World</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Спорттық клуб web сайты</div>
+  <nav>
+    <a href="index.html" class="active">Басты бет</a>
+    <a href="clubs.html">Клубтар</a>
+    <a href="news.html">Жаңалықтар</a>
+    <a href="contact.html">Байланыс</a>
+  </nav>
+
+  <!-- Профиль/қолданушы ақпарат -->
+  <div class="profile-icon">
+    <!-- Ашу үшін пайдаланатын белгі (пайдаланушы жоқ кезде көрінеді) -->
+    <label for="auth-popup" id="authLabel" title="Кіру/Тіркелу">&#128100;</label>
+
+    <!-- Ағымдағы қолданушы атауы және шығу батырмасы -->
+    <div id="userInfo" style="display:inline-block; margin-left:10px; vertical-align:middle;">
+      <span id="welcomeText" style="font-weight:600; display:none;"></span>
+      <button id="logoutBtn" style="display:none; margin-left:8px;">Шығу</button>
+    </div>
+  </div>
+</header>
+<!-- 🔒 Кіру / Тіркелу терезесі -->
+<input type="checkbox" id="auth-popup" class="popup-toggle">
+
+<div class="popup-overlay">
+  <div class="popup-box">
+    <label for="auth-popup" class="close-btn">&times;</label>
+
+    <div class="tabs">
+      <input type="radio" id="login-tab" name="auth-tab" checked>
+      <input type="radio" id="signup-tab" name="auth-tab">
+
+      <div class="tab-labels">
+        <label for="login-tab">Кіру</label>
+        <label for="signup-tab">Тіркелу</label>
+      </div>
+
+      <div class="tab-content login-content">
+        <form id="loginForm">
+          <input id="loginEmail" type="text" placeholder="Пайдаланушы аты немесе email" required>
+          <input id="loginPassword" type="password" placeholder="Құпия сөз" required>
+          <button type="submit">Кіру</button>
+        </form>
+      </div>
+
+      <div class="tab-content signup-content">
+        <form id="signupForm">
+          <input id="signupName" type="text" placeholder="Аты-жөніңіз" required>
+          <input id="signupEmail" type="email" placeholder="Электрондық пошта" required>
+          <input id="signupPassword" type="password" placeholder="Құпия сөз" required>
+          <button type="submit">Тіркелу</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>.</h2>
+<h2>.</h2>
+<!-- РЕКЛАМА -->
+<section class="ad-banner">
+  <div class="ad-track">
+    <img src="c:\Users\victus\Downloads\images\imageNIKE.jpg" alt="Nike Ad">
+    <img src="c:\Users\victus\Downloads\images\imageADIDAS.png" alt="Adidas Ad">
+    <img src="c:\Users\victus\Downloads\images\imageUNDERAUMOR.jpg" alt="UNDERAUMOR Ad">
+    <img src="c:\Users\victus\Downloads\images\imageNEWBALANCE.webp" alt="NEWBALANCE Ad">
+    <img src="c:\Users\victus\Downloads\images\imageKAPPA.jpg" alt="KAPPA Ad">
+    <img src="c:\Users\victus\Downloads\images\imagePLAYSTATION.jpg" alt="PLAYSTATION Ad">
+    <img src="c:\Users\victus\Downloads\images\imageJOMA.webp" alt="JOMA Ad">
+    <img src="c:\Users\victus\Downloads\images\imageEASPORTS.jpg" alt="EA Sports Ad">
+    <!-- Айналым үздіксіз болу үшін суреттерді қайталаймыз -->
+    <img src="c:\Users\victus\Downloads\images\imageNIKE.jpg" alt="Nike Ad">
+    <img src="c:\Users\victus\Downloads\images\imageADIDAS.png" alt="Adidas Ad">
+    <img src="c:\Users\victus\Downloads\images\imageUNDERAUMOR.jpg" alt="UNDERAUMOR Ad">
+    <img src="c:\Users\victus\Downloads\images\imageNEWBALANCE.webp" alt="NEWBALANCE Ad">
+    <img src="c:\Users\victus\Downloads\images\imageKAPPA.jpg" alt="KAPPA Ad">
+    <img src="c:\Users\victus\Downloads\images\imagePLAYSTATION.jpg" alt="PLAYSTATION Ad">
+    <img src="c:\Users\victus\Downloads\images\imageJOMA.webp" alt="JOMA Ad">
+    <img src="c:\Users\victus\Downloads\images\imageEASPORTS.jpg" alt="EA Sports Ad">
+  </div>
+</section>
+
+<section class="hero">
+    <div id="club-card" class="club-interactive-card">
+            <div class="player-photo-container">
+        <img id="team-photo" src="" alt="Team Photo" class="team-photo">
+      </div>
+
+            <div class="logo-and-name">
+        <img id="club-emblem" src="" alt="Club Emblem" class="club-emblem">
+        <h2 id="club-name">КЛУБ АТАУЫ</h2>
+      </div>
+  </div>
+  
+    <div class="hero-text">
+    <h1>СПОРТ ӘЛЕМІНЕ <span>ҚОШ КЕЛДІҢ!</span></h1>
+    <p>Мұнда әйгілі футбол клубтары мен қызықты жаңалықтармен таныса аласыз.</p>
+    <div class="buttons">
+      <a href="clubs.html" class="btn primary">Клубтарды көру</a>
+      <a href="news.html" class="btn secondary">Жаңалықтар</a>
+    </div>
+  </div>
+</section>
+
+<!--КЕЛЕСІ МАЧТТАР-->
+  <section class="match-section">
+    <h1 class="title">КЕЛЕСІ МАТЧТАР</h1>
+    <div class="match-block">
+      <div class="match-container" id="matchContainer"></div>
+      <p class="match-date" id="matchDate"></p>
+    </div>
+  </section>
+  <script src="script.js"></script>
+
+  
+
+  <!-- 🔚 Footer -->
+  <footer>
+    <div class="partners-footer">
+      <h3>Біздің серіктестер</h3>
+      <div class="partner-logos">
+        <img src="c:\Users\victus\Downloads\images\imageSPONSORNIKE.png" alt="Nike" />
+        <img src="c:\Users\victus\Downloads\images\imageSPONSORADIDAS.png" alt="Adidas" />
+        <img src="c:\Users\victus\Downloads\images\imageSPONSORQATAR-AIRWAYS.png" alt="Qatar Airways" />
+        <img src="c:\Users\victus\Downloads\images\imageSPONSORPUMA.webp" alt="Puma" />
+        <img src="c:\Users\victus\Downloads\images\imageSPONSOREASPORTS.png" alt="EA Sports" />
+      </div>
+    </div>
+    <p>© 2025 Sport World. Барлық құқықтар қорғалған.</p>
+  </footer>
+ 
+  <!-- AUTH logic (client-side demo using localStorage) -->
+  <script>
+    (function(){
+      const storageKey = 'sw_users';
+      const currentKey = 'sw_currentUser';
+
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const welcomeText = document.getElementById('welcomeText');
+      const authLabel = document.getElementById('authLabel');
+
+      function getUsers(){
+        try { return JSON.parse(localStorage.getItem(storageKey)) || []; }
+        catch(e){ return []; }
+      }
+      function saveUsers(users){ localStorage.setItem(storageKey, JSON.stringify(users)); renderUserList(); }
+      function setCurrentUser(user){
+        localStorage.setItem(currentKey, JSON.stringify(user));
+        updateUserUI();
+        renderUserList();
+      }
+      function clearCurrentUser(){
+        localStorage.removeItem(currentKey);
+        updateUserUI();
+        renderUserList();
+      }
+      function getCurrentUser(){
+        try { return JSON.parse(localStorage.getItem(currentKey)); }
+        catch(e){ return null; }
+      }
+
+      function formatLastLogin(ts){
+        if (!ts) return '—';
+        try {
+          const d = new Date(ts);
+          return d.toLocaleString('kk-KZ', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        } catch(e){
+          return ts;
+        }
+      }
+
+      // — UI for showing registered users (added)
+      (function createUsersPanel(){
+        const profile = document.querySelector('.profile-icon');
+        if (!profile) return;
+        const panel = document.createElement('div');
+        panel.id = 'usersPanel';
+        panel.style.position = 'relative';
+        panel.style.display = 'inline-block';
+        panel.style.marginLeft = '12px';
+        panel.innerHTML = `
+          <button id="showUsersBtn" type="button" style="padding:6px 8px; font-size:13px; cursor:pointer;">Пайдаланушылар (0)</button>
+          <div id="usersList" style="display:none; position:absolute; right:0; top:36px; min-width:260px; max-width:360px; background:#fff; border:1px solid #e6e6e6; padding:8px; box-shadow:0 8px 24px rgba(0,0,0,.08); z-index:1000;"></div>
+        `;
+        profile.appendChild(panel);
+
+        panel.addEventListener('click', (ev) => {
+          if (ev.target.id === 'showUsersBtn') {
+            const list = document.getElementById('usersList');
+            list.style.display = list.style.display === 'block' ? 'none' : 'block';
+          }
+        });
+
+        // close list when clicking outside
+        document.addEventListener('click', (e) => {
+          const list = document.getElementById('usersList');
+          const btn = document.getElementById('showUsersBtn');
+          if (!list || !btn) return;
+          if (!panel.contains(e.target)) list.style.display = 'none';
+        });
+      })();
+
+      function renderUserList(){
+        const users = getUsers();
+        const btn = document.getElementById('showUsersBtn');
+        const list = document.getElementById('usersList');
+        if (!btn || !list) return;
+        const current = getCurrentUser();
+        btn.textContent = `Пайдаланушылар (${users.length})`;
+        if (users.length === 0){
+          list.innerHTML = '<div style="padding:8px;color:#666;">Тіркелген қолданушылар жоқ</div>';
+          return;
+        }
+        list.innerHTML = users.map(u => {
+          const isCurrent = current && (current.email === u.email);
+          const last = u.lastLogin ? formatLastLogin(u.lastLogin) : 'Әлі кірмеген';
+          return `<div style="padding:8px 6px; border-bottom:1px solid #f1f1f1; display:flex;justify-content:space-between;align-items:center;">
+                    <div style="font-size:13px;">
+                      ${isCurrent ? '→ ' : ''}
+                      <strong>${escapeHtml(u.name || u.email)}</strong>
+                      <div style="font-size:12px;color:#666; margin-top:4px;">${escapeHtml(u.email)} · <span style="color:#444;">Соңғы кіру: ${escapeHtml(last)}</span></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+                      <button data-email="${u.email}" class="impersonateBtn" style="font-size:12px;padding:4px 6px;cursor:pointer;">Көрсету</button>
+                      <button data-email="${u.email}" class="removeBtn" style="font-size:11px;padding:4px 6px;cursor:pointer;background:#fff;border:1px solid #eee;color:#c33;">Жою</button>
+                    </div>
+                  </div>`;
+        }).join('');
+        // attach quick "Көрсету" and "Жою"
+        list.querySelectorAll('.impersonateBtn').forEach(b => {
+          b.addEventListener('click', (e) => {
+            const email = e.currentTarget.dataset.email;
+            const user = users.find(x => x.email === email);
+            if (!user) return;
+            // show preview only — DO NOT change current user or lastLogin
+            showUserPreview(user);
+          });
+        });
+        list.querySelectorAll('.removeBtn').forEach(b => {
+          b.addEventListener('click', (e) => {
+            const email = e.currentTarget.dataset.email;
+            if (!confirm('Осы пайдаланушыны жою керек пе?')) return;
+            const newUsers = users.filter(u=>u.email !== email);
+            saveUsers(newUsers);
+            // if removed user was current - clear
+            const cur = getCurrentUser();
+            if (cur && cur.email === email) clearCurrentUser();
+          });
+        });
+      }
+
+      function escapeHtml(s){
+        return String(s || '').replace(/[&<>"']/g, (c)=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      }
+
+      // NEW: show preview modal without changing current user
+      function showUserPreview(user){
+        const existing = document.getElementById('userPreviewModal');
+        if (existing) existing.remove();
+        const modal = document.createElement('div');
+        modal.id = 'userPreviewModal';
+        Object.assign(modal.style, {
+          position: 'fixed', inset: '0', display: 'flex',
+          alignItems: 'center', justifyContent: 'center',
+          background: 'rgba(0,0,0,0.45)', zIndex: 2000
+        });
+        modal.innerHTML = `
+          <div style="background:#fff;padding:16px;border-radius:8px;min-width:260px;max-width:92%;box-shadow:0 12px 40px rgba(0,0,0,.3);">
+            <h3 style="margin:0 0 8px 0;">${escapeHtml(user.name || user.email)}</h3>
+            <div style="font-size:13px;color:#444;margin-bottom:8px;">${escapeHtml(user.email)}</div>
+            <div style="font-size:13px;color:#666;margin-bottom:12px;">Соңғы кірген: ${escapeHtml(user.lastLogin ? formatLastLogin(user.lastLogin) : '—')}</div>
+            <div style="text-align:right;"><button id="closeUserPreview" style="padding:6px 10px;cursor:pointer;">Жабу</button></div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        modal.querySelector('#closeUserPreview').addEventListener('click', () => modal.remove());
+        modal.addEventListener('click', (ev) => { if (ev.target === modal) modal.remove(); });
+      }
+
+      function updateUserUI(){
+        const user = getCurrentUser();
+        if (user){
+          // show only greeting — remove "Соңғы кіру" from the header next to account
+          welcomeText.textContent = 'Қош келдің, ' + (user.name || user.email);
+          welcomeText.style.display = 'inline';
+          logoutBtn.style.display = 'inline-block';
+          authLabel.style.display = 'none';
+          const popup = document.getElementById('auth-popup');
+          if (popup) popup.checked = false;
+        } else {
+          welcomeText.style.display = 'none';
+          logoutBtn.style.display = 'none';
+          authLabel.style.display = 'inline';
+        }
+      }
+
+      // Signup
+      signupForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('signupName').value.trim();
+        const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+        const password = document.getElementById('signupPassword').value;
+
+        const users = getUsers();
+        if (users.find(u => u.email === email)){
+          alert('Осы email бойынша жазылым бар. Тіркелген болсаңыз кіруді пайдаланыңыз.');
+          return;
+        }
+        const now = new Date().toISOString();
+        const user = { name, email, password, lastLogin: now }; // тіркелген кезде бірден кірген деп белгілейміз
+        users.push(user);
+        saveUsers(users);
+        setCurrentUser({ name: user.name, email: user.email, lastLogin: user.lastLogin });
+        alert('Тіркелу сәтті өтті. Қош келдіңіз!');
+      });
+
+      // Login
+      loginForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const ident = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        const users = getUsers();
+        const idx = users.findIndex(u => (u.email === ident.toLowerCase() || u.name === ident) && u.password === password);
+        if (idx === -1){
+          alert('Қате логин немесе құпия сөз.');
+          return;
+        }
+        // update lastLogin for that user
+        users[idx].lastLogin = new Date().toISOString();
+        saveUsers(users);
+        setCurrentUser({ name: users[idx].name, email: users[idx].email, lastLogin: users[idx].lastLogin });
+        alert('Сіз сәтті кірдіңіз.');
+      });
+
+      // Logout
+      logoutBtn.addEventListener('click', function(){
+        clearCurrentUser();
+        alert('Шығу сәтті өтті.');
+      });
+
+      // Sync across tabs
+      window.addEventListener('storage', (e) => {
+        if (e.key === storageKey || e.key === currentKey) {
+          updateUserUI();
+          renderUserList();
+        }
+      });
+
+      // Инициализация
+      document.addEventListener('DOMContentLoaded', function(){
+        updateUserUI();
+        renderUserList();
+      });
+      updateUserUI();
+      renderUserList();
+    })();
+  </script>
+</body>
+</html>

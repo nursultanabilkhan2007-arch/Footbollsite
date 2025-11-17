@@ -1,0 +1,1197 @@
+/* ========== БАЗАЛЫҚ ОРНАТУЛАР ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 70px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.368);
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+}
+
+.logo {
+  color: #ff1c1c;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ff1c1c;
+}
+
+/* ========== HERO SLIDER (index.html) ========== */
+.hero {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.slider {
+  width: 80%;
+  max-width: 900px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.slides {
+  display: flex;
+  width: 600%;
+  height: 100%;
+  transition: 0.6s;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 200px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+}
+
+.slide h1 {
+  font-size: 2.2rem;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.real { background: linear-gradient(135deg, #0a0a0a, #1a1a1a); }
+.barca { background: linear-gradient(135deg, #111, #400000); }
+.psg { background: linear-gradient(135deg, #001122, #000); }
+.bayern { background: linear-gradient(135deg, #2a0000, #000); }
+.liverpool { background: linear-gradient(135deg, #330000, #000); }
+.city { background: linear-gradient(135deg, #002233, #000); }
+
+.controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.bar {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ff1c1c;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.bar:hover { background: #ff1c1c; }
+
+#s1:checked ~ .slides { margin-left: 0; }
+#s2:checked ~ .slides { margin-left: -100%; }
+#s3:checked ~ .slides { margin-left: -200%; }
+#s4:checked ~ .slides { margin-left: -300%; }
+#s5:checked ~ .slides { margin-left: -400%; }
+#s6:checked ~ .slides { margin-left: -500%; }
+
+.arrows label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.arrows label:hover {
+  opacity: 1;
+  color: #ff1c1c;
+}
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ========== КЛУБТАР (clubs.html) ========== */
+.clubs-page {
+  margin-top: 120px;
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.clubs-page h1 {
+  color: #ff1c1c;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.club-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.club-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+}
+
+.club-card img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.club-card h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.club-card p {
+  color: #bbb;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* ========== ЖАҢАЛЫҚТАР (news.html) ========== */
+.news-page {
+  margin-top: 120px;
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.news-page h1 {
+  color: #ff1c1c;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.news-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+}
+
+.news-card h2 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.news-card p {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* ========== БАЙЛАНЫС (contact.html) ========== */
+.contact-page {
+  margin-top: 120px;
+  text-align: center;
+  padding: 60px 10%;
+}
+
+.contact-page h1 {
+  color: #ff1c1c;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.contact-page p {
+  color: #818181;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  margin: 0 auto 40px;
+}
+
+input, textarea {
+  background: #1a1a1a;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  color: white;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* ========== ӘЛЕУМЕТТІК ========== */
+.socials p {
+  color: #818181;
+  margin-bottom: 15px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icons a {
+  color: #ff1c1c;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.icons a:hover {
+  color: white;
+  text-shadow: 0 0 10px red;
+}
+
+/* ========== БАТЫРМАЛАР ========== */
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn.primary {
+  background: #ff1c1c;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+.btn.primary:hover {
+  background: white;
+  color: #ff1c1c;
+}
+
+.btn.secondary {
+  border: 2px solid #ff1c1c;
+  color: #ff1c1c;
+}
+
+.btn.secondary:hover {
+  background: #ff1c1c;
+  color: white;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #aaa;
+  background: #000;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* ========== АДАПТИВТІ (телефонға) ========== */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 30px;
+  }
+  .logo { font-size: 1.1rem; }
+  nav a { margin-left: 15px; font-size: 0.9rem; }
+
+  .hero { height: 60vh; }
+  .slide img { width: 150px; }
+  .slide h1 { font-size: 1.5rem; }
+
+  .club-grid, .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  form { width: 90%; }
+}
+
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  color: #ff1c1c;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ff1c1c;
+}
+
+/* HERO SECTION — Starbucks style */
+.hero-starbucks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 140px 80px 60px;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  min-height: 90vh;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-text h3 {
+  color: #ccc;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+  color: #ff1c1c;
+}
+
+.hero-text p {
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn.primary {
+  background: #ff1c1c;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+.btn.primary:hover {
+  background: white;
+  color: #ff1c1c;
+}
+
+.btn.secondary {
+  border: 2px solid #ff1c1c;
+  color: #ff1c1c;
+}
+
+.btn.secondary:hover {
+  background: #ff1c1c;
+  color: white;
+}
+
+/* IMAGE SIDE */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 710px;
+  transform: rotate(-25deg);
+  filter: drop-shadow(0 35px 45px rgba(255, 0, 0, 0.4));
+  transition: 0.4s;
+}
+
+.hero-image img:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* FEATURED CLUBS */
+.featured-clubs {
+  text-align: center;
+  padding: 80px 60px;
+}
+
+.featured-clubs h2 {
+  color: #ff1c1c;
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.club-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.club-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+}
+
+.club-card img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.club-card h3 {
+  color: white;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  color: #bbb;
+}
+
+/* Эмблемалар БАЙЛАНЫС */
+.icons a {
+  display: inline-block;
+  margin: 10px;
+  font-size: 18px;
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.icons a i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.icons a:hover {
+  color: #ffffff; /* hover кезінде көк түске өзгереді */
+}
+
+/* СУРЕТТЕР ЖАҢАЛЫҚТАР */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.news-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-card h2 {
+  font-size: 18px;
+  margin: 15px;
+}
+
+.news-card p {
+  margin: 0 15px 15px;
+  color: #9a9a9a;
+}
+
+.news-card .btn {
+  display: inline-block;
+  margin: 0 15px 15px;
+  text-decoration: none;
+  color: white;
+  background: #ff0000;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.news-card .btn:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+/* ---АНИМАЦИЯ БАСТЫБЕТ --- */
+/* Жалпы стиль */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0c0f14;
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #0c0f14;
+}
+
+header .logo {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ff0000;
+}
+
+/* ---- HERO ---- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+  background: linear-gradient(135deg, #0c0f14, #ff0000);
+  overflow: hidden;
+  padding: 0 5%;
+}
+
+/* ---- SLIDER ---- */
+.slider {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 600%;
+  animation: slide 24s infinite;
+}
+
+.slide {
+  width: 100%;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 250px;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+.slide h2 {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* ---- SLIDE анимация ---- */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(0); }
+  20%  { transform: translateX(-100%); }
+  35%  { transform: translateX(-100%); }
+  40%  { transform: translateX(-200%); }
+  55%  { transform: translateX(-200%); }
+  60%  { transform: translateX(-300%); }
+  75%  { transform: translateX(-300%); }
+  80%  { transform: translateX(-400%); }
+  95%  { transform: translateX(-400%); }
+  100% { transform: translateX(0); }
+}
+
+/* ---- ОҢ ЖАҚ МӘТІН ---- */
+.hero-text {
+  flex: 1;
+  text-align: left;
+  padding-left: 60px;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 56px;
+  line-height: 1.2;
+}
+
+.hero-text h1 span {
+  color: #ffffff;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #ddd;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+/* ---- BUTTONS ---- */
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #00ff99;
+  color: black;
+}
+
+.secondary {
+  background: white;
+  color: black;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---- FOOTER ---- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0c0f14;
+  color: #aaa;
+}
+
+/* ----СЕРІКТЕСТЕР ---- */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 30px 0 10px 0;
+}
+
+footer h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+footer .partner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+footer .partner-logos img {
+  height: 45px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+footer .partner-logos img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ----РЕКЛАМА ---- */
+/* 🔥 Жылжитын реклама бөлімі */
+.ad-banner {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0c0c0c, #111);
+  padding: 15px 0;
+  border-top: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+}
+
+.ad-track {
+  display: flex;
+  gap: 0; /* арасы жабысып тұрсын */
+  animation: scrollAds 35s linear infinite;
+}
+
+.ad-track img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin-right: 0;
+}
+
+/* Hover кезінде үлкейеді */
+.ad-track img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+@keyframes scrollAds {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Келесі матчтар бөлімі */
+body {
+  background: #000;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  color: #e00000;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 50px;
+  letter-spacing: 1.5px;
+}
+
+.match-block {
+  background: #fff;
+  width: 85%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 60px 30px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease;
+}
+
+.match-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 40%;
+}
+
+.team-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.team img.logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.team img.player {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.team:hover img.logo {
+  transform: scale(1.05);
+}
+
+.team:hover img.player {
+  transform: scale(1.07);
+}
+
+.team h2 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.vs {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #e00000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  margin: 20px;
+}
+
+.match-date {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #111;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Негізгі стильдер ПРОФИЛЬ*/
+body {
+  background-color: #eeeeee;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 15px 40px;
+  border-bottom: 2px solid #e60000;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 12px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #e60000;
+}
+
+/* Профиль иконкасы */
+.profile-icon {
+  margin-left: 20px;
+}
+
+.profile-icon label {
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.profile-icon label:hover {
+  color: #e60000;
+}
+
+/* Popup терезе */
+.popup-toggle { display: none; }
+
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.popup-toggle:checked ~ .popup-overlay {
+  display: flex;
+}
+
+.popup-box {
+  background: #fff;
+  color: #000;
+  width: 350px;
+  padding: 30px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 0 25px rgba(230,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Жабу батырмасы */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  color: #e60000;
+  cursor: pointer;
+}
+
+/* Кіру / Тіркелу табтар */
+.tabs {
+  text-align: center;
+}
+
+.tab-labels {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+}
+
+.tab-labels label {
+  padding: 10px 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  transition: 0.3s;
+  width: 50%;
+}
+
+#login-tab:checked ~ .tab-labels label[for="login-tab"],
+#signup-tab:checked ~ .tab-labels label[for="signup-tab"] {
+  color: #e60000;
+  border-bottom: 3px solid #e60000;
+}
+
+/* Формалар */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#login-tab:checked ~ .login-content {
+  display: block;
+}
+#signup-tab:checked ~ .signup-content {
+  display: block;
+}
+
+.tab-content form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.tab-content form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #e60000;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-content form button:hover {
+  background-color: #b30000;
+}
+
+/* ======================================= */
+/* 🆕 ЖАҢА ИНТЕРАКТИВТІ КЛУБ КАРТАСЫНЫҢ СТИЛІ */
+/* ======================================= */
+
+.club-interactive-card {
+    /* Картаның негізгі контейнері */
+    width: 750px; /* Қажетті еніңізді қойыңыз */
+    height: 500px; /* Қажетті биіктігіңізді қойыңыз */
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+    cursor: pointer;
+    background: linear-gradient(135deg, #1d00009d, #ee0000); /* Бастапқы фон */
+}
+
+/* 1. Эмблема және атау бөлігі (Алдыңғы план) */
+.logo-and-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative; /* Ойыншылар суретінің үстінде болу үшін */
+    z-index: 10;
+    /* Анимацияның тегіс болуы үшін transition қосамыз */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.club-emblem {
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+    transition: all 0.5s ease-in-out; /* Эмблеманың өзінің анимациясы */
+}
+
+.logo-and-name h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    margin-top: 15px;
+}
+
+/* 2. Ойыншылар фотосының контейнері (Артқы фон) */
+.player-photo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Бастапқыда мөлдір (жасырын) */
+    transition: opacity 0.5s ease-in-out 0.1s; /* Тегіс пайда болу үшін */
+    z-index: 5;
+}
+
+.team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Суретті контейнерді толық толтыратындай масштабтау */
+}
+
+/* 🌟 HOVER ӘСЕРІ: club-interactive-card-қа тінтуірді апарғанда 🌟 */
+
+.club-interactive-card:hover .logo-and-name {
+    /* Эмблема бөлігін жоғары жылжыту */
+    transform: translateY(-160px);
+    /* Жартылай мөлдір ету */
+    opacity: 0.2; 
+}
+
+.club-interactive-card:hover .club-emblem {
+    /* Эмблеманы кішірейту */
+    transform: scale(0.6); 
+}
+
+.club-interactive-card:hover .player-photo-container {
+    /* Ойыншылар фотосын көрсету */
+    opacity: 1; 
+}
